@@ -1,10 +1,15 @@
 function cursor() {
     let body = document.body
-    let cursor = document.querySelector('.cursor')
     body.addEventListener('mousemove', (e) => {
+        let cursor = document.createElement('div')
+        cursor.className = ".cursor"
         let top = e.clientY
         let left = e.clientX
+        body.appendChild(cursor)
         cursor.style = `top:${top}px;left:${left}px;position:absolute;z-index:10000;`
+        setTimeout(() => {
+            body.removeChild(cursor)
+        }, 1000);
     })
 }
 setInterval(cursor,100)
