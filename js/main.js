@@ -1,3 +1,13 @@
+function cursor() {
+    let body = document.body
+    let cursor = document.querySelector('.cursor')
+    body.addEventListener('mousemove', (e) => {
+        let top = e.clientY
+        let left = e.clientX
+        cursor.style = `top:${top}px;left:${left}px;position:absolute;z-index:10000;`
+    })
+}
+setInterval(cursor,100)
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. MODE SOMBRE / CLAIR (DOM) ---
