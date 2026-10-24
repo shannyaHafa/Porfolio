@@ -1,0 +1,29 @@
+// --- 1. PALETTE DE COULEURS ---
+$color-dark-bg:      #0a0e17;  // Un bleu très profond, presque noir
+$color-dark-card:    #111625;  // Légèrement plus clair pour les cartes
+$color-aqua:         #00f2ea;  // Aqua vif et lumineux
+$color-blue-night:   #1a253a;  // Bleu nuit pour le contraste
+$color-text-light:   #e0e6ed;  // Gris clair pour le texte
+$color-text-muted:   #94a3b8;  // Gris moyen pour le texte secondaire
+
+// --- 2. TYPOGRAPHIE ---
+$font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+// --- 3. MIXIN RESPONSIVE ---
+$breakpoints: (
+    'xs': 0,
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints,$breakpoint) {
+        @media (min-width: map-get($breakpoints,$breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Le point de rupture `#{$breakpoint}` n'est pas défini.";
+    }
+}
